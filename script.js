@@ -1,25 +1,23 @@
 let $startButton = document.querySelector("#start");
 let $gamePlace = document.querySelector("#game");
-let $timeHeader = document.querySelector('#time-header')
-let $gameTime = document.querySelector('#game-time')
+let $timeHeader = document.querySelector("#time-header");
+let $gameTime = document.querySelector("#game-time");
 let $time = document.querySelector("#time");
 
-let $gameResult = document.querySelector("#result-header")
-let $result = document.querySelector('#result')
+let $gameResult = document.querySelector("#result-header");
+let $result = document.querySelector("#result");
 let counter = 0;
 $startButton.addEventListener("click", startGame);
 
 function startGame() {
   $startButton.classList.add("hide");
   $gamePlace.style.backgroundColor = "white";
-  $time.textContent = $gameTime.value
-  $timeHeader.classList.remove('hide')
-  $gameResult.classList.add('hide')
-
+  $time.textContent = $gameTime.value;
+  $timeHeader.classList.remove("hide");
+  $gameResult.classList.add("hide");
 
   createBox();
   timer();
-
 }
 
 function createBox() {
@@ -37,7 +35,7 @@ function createBox() {
   box.style.position = "absolute";
   box.style.top = top + "px";
   box.style.left = left + "px";
-  box.style.border = "1px solid black"
+  box.style.border = "1px solid black";
   box.setAttribute("data-box", "true");
 
   $gamePlace.insertAdjacentElement("afterbegin", box);
@@ -62,16 +60,16 @@ const timer = () => {
     if ($time.textContent == 0.0) {
       clearInterval(interval);
       endGame();
-      results()
+      results();
     }
   }, 100);
 };
 
-function results(){
-  $timeHeader.classList.add('hide')
-  $gameResult.classList.remove('hide')
-  $result.textContent = counter
-  counter = 0 
+function results() {
+  $timeHeader.classList.add("hide");
+  $gameResult.classList.remove("hide");
+  $result.textContent = counter;
+  counter = 0;
 }
 
 function endGame() {
